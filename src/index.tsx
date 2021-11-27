@@ -19,7 +19,7 @@ import { BrowserRouter } from 'react-router-dom';
 ReactDOM.render(
   <React.StrictMode>
     {/* <Web3ReactProvider getLibrary={getLibrary}> */}
-    <BrowserRouter>
+    <BrowserRouter basename="/moonscape">
     <App />
     </BrowserRouter>
     {/* </Web3ReactProvider> */}
