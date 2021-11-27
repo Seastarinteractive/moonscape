@@ -191,7 +191,6 @@ const App = () => {
       }, [provider, disconnect])
 
     return (
-        <Router>
       <div>
       <header>
         <div className="wallet-section">
@@ -232,7 +231,6 @@ const App = () => {
           </Route>
         </Routes>
       </div>
-    </Router>
     );
 }
 
