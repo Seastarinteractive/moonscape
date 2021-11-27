@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/moonscape/static/css/main.7cd6e3ed.chunk.css",
-    "main.js": "/moonscape/static/js/main.8fddafbc.chunk.js",
-    "main.js.map": "/moonscape/static/js/main.8fddafbc.chunk.js.map",
+    "main.js": "/moonscape/static/js/main.769d5b50.chunk.js",
+    "main.js.map": "/moonscape/static/js/main.769d5b50.chunk.js.map",
     "runtime-main.js": "/moonscape/static/js/runtime-main.d7bd34fa.js",
     "runtime-main.js.map": "/moonscape/static/js/runtime-main.d7bd34fa.js.map",
-    "static/js/2.e4cf6fd7.chunk.js": "/moonscape/static/js/2.e4cf6fd7.chunk.js",
-    "static/js/2.e4cf6fd7.chunk.js.map": "/moonscape/static/js/2.e4cf6fd7.chunk.js.map",
+    "static/js/2.3b542dd9.chunk.js": "/moonscape/static/js/2.3b542dd9.chunk.js",
+    "static/js/2.3b542dd9.chunk.js.map": "/moonscape/static/js/2.3b542dd9.chunk.js.map",
     "static/js/3.01ae2a60.chunk.js": "/moonscape/static/js/3.01ae2a60.chunk.js",
     "static/js/3.01ae2a60.chunk.js.map": "/moonscape/static/js/3.01ae2a60.chunk.js.map",
     "index.html": "/moonscape/index.html",
     "static/css/main.7cd6e3ed.chunk.css.map": "/moonscape/static/css/main.7cd6e3ed.chunk.css.map",
-    "static/js/2.e4cf6fd7.chunk.js.LICENSE.txt": "/moonscape/static/js/2.e4cf6fd7.chunk.js.LICENSE.txt",
+    "static/js/2.3b542dd9.chunk.js.LICENSE.txt": "/moonscape/static/js/2.3b542dd9.chunk.js.LICENSE.txt",
     "static/media/index.css": "/moonscape/static/media/gilroy-semibold.017ff10c.otf"
   },
   "entrypoints": [
     "static/js/runtime-main.d7bd34fa.js",
-    "static/js/2.e4cf6fd7.chunk.js",
+    "static/js/2.3b542dd9.chunk.js",
     "static/css/main.7cd6e3ed.chunk.css",
-    "static/js/main.8fddafbc.chunk.js"
+    "static/js/main.769d5b50.chunk.js"
   ]
 }
