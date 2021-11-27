@@ -196,7 +196,21 @@
   },
   {
     "inputs": [],
-    "name": "getAllocation",
+    "name": "getTotalReleased",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "getAvailableAmount",
     "outputs": [
       {
         "internalType": "uint256",
