@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Countdown from "react-countdown";
 import Web3 from "web3";
-import { DURATION_PRIVATE, DURATION_STRATEGIC, numberWithCommas, TOTAL } from "../utils"
+import { DURATION_PRIVATE, DURATION_STRATEGIC, numberWithCommas, TOTAL_DAILY } from "../utils"
 
 const DailyPage = (props: any) => {
     const {address, contract} = props;
@@ -22,8 +22,12 @@ const DailyPage = (props: any) => {
                 let totalAvailable = await contract.methods.getAvailableAmount().call({from: address});
                 totalAvailable = parseFloat(Web3.utils.fromWei(totalAvailable, "ether")).toFixed(6);
                 setTotalAvailable(totalAvailable);
-                const balances = await contract.methods.balances(address).call()
-                setIsStrategic(balances.strategicInvestor);
+                // try {
+                //   const balances = await contract.methods.balances(address).call()
+                //   setIsStrategic(balances.strategicInvestor);
+                // } catch (error) {
+                //   setIsStrategic(false);
+                // }
             } else {
                 setTotalAvailable(0);
                 setTotalReleased(0);
@@ -66,7 +70,7 @@ const DailyPage = (props: any) => {
                   </p>
   
                   <p className="number">
-                    {numberWithCommas(TOTAL)}
+                    {numberWithCommas(TOTAL_DAILY)}
                   </p>
                 </div>
                 <div className="info-list--item">

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Countdown from "react-countdown";
 import Web3 from "web3";
-import { DURATION_PRIVATE, DURATION_STRATEGIC, numberWithCommas, TOTAL } from "../utils"
+import { DURATION_PRIVATE, DURATION_STRATEGIC, numberWithCommas, TOTAL_VESTING } from "../utils"
 
 const VestingPage = (props: any) => {
     const {address, contract} = props;
@@ -66,7 +66,7 @@ const VestingPage = (props: any) => {
                   </p>
   
                   <p className="number">
-                    {numberWithCommas(TOTAL)}
+                    {numberWithCommas(TOTAL_VESTING)}
                   </p>
                 </div>
                 <div className="info-list--item">

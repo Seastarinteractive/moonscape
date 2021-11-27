@@ -12,16 +12,16 @@ import {
 import { UserRejectedRequestError as UserRejectedRequestErrorWalletConnect } from '@web3-react/walletconnect-connector'
 import { UserRejectedRequestError as UserRejectedRequestErrorFrame } from '@web3-react/frame-connector'
 import { Web3Provider } from '@ethersproject/providers'
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 
 
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <Web3ReactProvider getLibrary={getLibrary}> */}
-    <BrowserRouter basename="/moonscape">
+    <HashRouter>
     <App />
-    </BrowserRouter>
+    </HashRouter>
     {/* </Web3ReactProvider> */}
   </React.StrictMode>,
   document.getElementById('root')

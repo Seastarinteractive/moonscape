@@ -104,11 +104,11 @@ const App = () => {
             (window as any).vesting = vesting;
             setVestingContract(vesting);
 
-            const banter = await loadContract("MscpVesting", process.env.REACT_APP_BANTER_ADDRESS as string);
+            const banter = await loadContract("MscpVesting30M", process.env.REACT_APP_BANTER_ADDRESS as string);
             (window as any).banter = banter;
             setBanterContract(banter);
 
-            const daily = await loadContract("MscpVesting", process.env.REACT_APP_DAILY_ADDRESS as string);
+            const daily = await loadContract("MscpVesting5M", process.env.REACT_APP_DAILY_ADDRESS as string);
             (window as any).daily = daily;
             setDailyContract(daily);
           })()

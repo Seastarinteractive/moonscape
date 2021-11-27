@@ -20,4 +20,6 @@ export const SUPPLY_STRATEGIC = process.env.REACT_APP_SUPPLY_STRATEGIC as string
 export const BONUS_PRIVATE = 1500000;
 export const BONUS_STRATEGIC = 2000000;
 
-export const TOTAL = process.env.REACT_APP_TOTAL as string;
+export const TOTAL_VESTING = process.env.REACT_APP_TOTAL_VESTING as string;
+export const TOTAL_DAILY = process.env.REACT_APP_TOTAL_DAILY as string;
+export const TOTAL_BANTER = process.env.REACT_APP_TOTAL_BANTER as string;
