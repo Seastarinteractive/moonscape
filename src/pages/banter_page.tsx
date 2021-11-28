@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Countdown from "react-countdown";
 import Web3 from "web3";
-import { DURATION_PRIVATE, DURATION_STRATEGIC, numberWithCommas, TOTAL_BANTER } from "../utils"
+import { DURATION_PRIVATE, DURATION_STRATEGIC, numberWithCommas, renderer, TOTAL_BANTER } from "../utils"
 
 const BanterPage = (props: any) => {
     const {address, contract} = props;
@@ -9,12 +9,18 @@ const BanterPage = (props: any) => {
     const [totalReleased, setTotalReleased] = useState<any>(0);
     const [totalAvailable, setTotalAvailable] = useState<any>(0);
     const [isStrategic, setIsStrategic] = useState<any>(false);
+    const [showData, setShowData] = useState<any>(false);
 
  
     let start = (async () => {
         if(contract){
-            const startTime = await contract.methods.startTime().call();
-            setStartTime(startTime);
+          const startTime = await contract.methods.startTime().call();
+          setStartTime(startTime);
+          if(startTime <= Math.round(new Date().getTime()/1000)){
+            if(showData === false) {
+              setShowData(true)
+            }
+          }
             if(address) {
                 let totalReleased = await contract.methods.getTotalReleased().call({from: address});
                 totalReleased = parseFloat(Web3.utils.fromWei(totalReleased, "ether")).toFixed(6);
@@ -22,13 +28,6 @@ const BanterPage = (props: any) => {
                 let totalAvailable = await contract.methods.getAvailableAmount().call({from: address});
                 totalAvailable = parseFloat(Web3.utils.fromWei(totalAvailable, "ether")).toFixed(6);
                 setTotalAvailable(totalAvailable);
-                // try {
-                //   const balances = await contract.methods.balances(address).call()
-                //   setIsStrategic(balances.strategicInvestor);
-                // } catch (error) {
-                //   setIsStrategic(false);
-                // }
-                
             } else {
                 setTotalAvailable(0);
                 setTotalReleased(0);
@@ -58,7 +57,7 @@ const BanterPage = (props: any) => {
         }
       }
       
-    return (
+      return (
         <div className="popup"> 
         <div className="popup-inner">
           <h1>
@@ -80,7 +79,7 @@ const BanterPage = (props: any) => {
                   </p>
   
                   <p className="number">
-                  { !totalReleased ? '???' : numberWithCommas(totalReleased)}
+                  { (!showData) ? '???' : numberWithCommas(totalReleased)}
                   </p>
                 </div>
   
@@ -90,7 +89,7 @@ const BanterPage = (props: any) => {
                   </p>
   
                   <p className="number">
-                  { !totalAvailable ? '???' : numberWithCommas(totalAvailable)}
+                  { (!showData) ? '???' : numberWithCommas(totalAvailable)}
                   </p>
                 </div>
   
@@ -100,12 +99,12 @@ const BanterPage = (props: any) => {
                   </p>
   
                   <p className="number">
-                  { !startTime ? '???' :  <Countdown date={startTime*1000 + (isStrategic ? Number(DURATION_STRATEGIC) : Number(DURATION_PRIVATE)) * 1000} /> }
+                  { (!showData || !startTime) ? '???' :  <Countdown renderer={renderer} date={startTime*1000 + (isStrategic ? Number(DURATION_STRATEGIC) : Number(DURATION_PRIVATE)) * 1000} /> }
                   </p>
                 </div>
             </div>
             <span className="spacer"></span>
-            <button className={`claim-btn ${address ? 'active': 'inactive'}`} onClick={()=>{
+            <button className={`claim-btn ${(address && showData) ? 'active': 'inactive'}`} onClick={()=>{
                 if(address) {
                     claim();
                 }

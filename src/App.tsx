@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 import DailyPage from "./pages/daily_page";
 import BanterPage from "./pages/banter_page";
-import { loadContract } from "./utils";
+import { configureMoonbaseAlpha, loadContract } from "./utils";
 
 const providerOptions = {};
 let web3Modal: any
@@ -98,8 +98,11 @@ const App = () => {
     const [banterContract, setBanterContract] = useState<any>(null);
     const [dailyContract, setDailyContract] = useState<any>(null);
 
+    // 
+
     useEffect(() => {
         (async () => {
+            configureMoonbaseAlpha();
             const vesting = await loadContract("MscpVesting", process.env.REACT_APP_VESTING_ADDRESS as string);
             (window as any).vesting = vesting;
             setVestingContract(vesting);
