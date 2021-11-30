@@ -27,7 +27,11 @@ const BanterPage = (props: any) => {
                 setTotalReleased(totalReleased);
                 let totalAvailable = await contract.methods.getAvailableAmount().call({from: address});
                 totalAvailable = parseFloat(Web3.utils.fromWei(totalAvailable, "ether")).toFixed(6);
-                setTotalAvailable(totalAvailable);
+                if(totalAvailable.toString().substr(-4) === "e+59"){
+                  setTotalAvailable(0);
+                } else {
+                  setTotalAvailable(totalAvailable);
+                }
             } else {
                 setTotalAvailable(0);
                 setTotalReleased(0);
@@ -104,8 +108,8 @@ const BanterPage = (props: any) => {
                 </div>
             </div>
             <span className="spacer"></span>
-            <button className={`claim-btn ${(address && showData) ? 'active': 'inactive'}`} onClick={()=>{
-                if(address) {
+            <button className={`claim-btn ${(address && showData && totalAvailable > 0) ? 'active': 'inactive'}`} onClick={()=>{
+                if(address && totalAvailable > 0) {
                     claim();
                 }
             }}>
